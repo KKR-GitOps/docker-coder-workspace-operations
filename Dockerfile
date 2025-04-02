@@ -49,8 +49,8 @@ RUN apt install -y --no-install-recommends \
     tk-dev \
     libpq-dev \
     libxmlsec1-dev \
-    libpango \
-    libpangoft2
+    libpango-dev \
+    libpangoft2-dev
 
 # Nodejs
 # RUN wget -O - https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-x64.tar.gz | tar xz
