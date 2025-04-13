@@ -50,21 +50,12 @@ RUN apt install -y --no-install-recommends \
     libpq-dev \
     libxmlsec1-dev
 
-# Nodejs
-# RUN wget -O - https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-x64.tar.gz | tar xz
-# RUN mv node* /opt/node
-# RUN ln -s /opt/node/bin/* /usr/local/bin
-
-# playwright
-# RUN npx -y playwright@1.50.1 install --with-deps
-
 # Docker client
 RUN curl -fsSL https://get.docker.com | sh
 
 # Docker Compose
-RUN curl -L "https://github.com/docker/compose/releases/download/v2.24.7/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
-RUN mkdir -p /usr/local/lib/docker/cli-plugins && \
-    ln -s /usr/local/bin/docker-compose /usr/local/lib/docker/cli-plugins
+RUN mkdir -p /usr/local/lib/docker/cli-plugins
+RUN curl -fsSL "https://github.com/docker/compose/releases/download/v2.35.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/lib/docker/cli-plugins/docker-compose && chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
 
 # kubectl
